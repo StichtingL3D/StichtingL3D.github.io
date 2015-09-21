@@ -23,13 +23,15 @@ $('a.subtle').popover({
 
 // randomize and pack results
 var isotopeGutter = 20;
-var isotope = $('#isotope').isotope({
-	layoutMode: 'packery',
-	packery: {
-		gutter: isotopeGutter
-	},
-	sortBy: 'random',
-	stamp: '#about'
+var isotope = $('#isotope').imagesLoaded(function(){
+	isotope.isotope({
+		layoutMode: 'packery',
+		packery: {
+			gutter: isotopeGutter
+		},
+		sortBy: 'random',
+		stamp: '#about'
+	});
 });
 
 // place the results all over the page, but centered
