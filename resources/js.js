@@ -40,6 +40,7 @@ function reflow() {
 	var isotopeWidth = $('#isotope section:not(.double)').outerWidth() * isotopeColumns + (isotopeGutter * (isotopeColumns-1));
 	$('#isotope').css('width', isotopeWidth);
 	
+	$('#filters').css('width', isotopeWidth);
 	$('#thanks').css('width', isotopeWidth);
 }
 reflow();
@@ -57,6 +58,37 @@ $('#thanks section ul').isotope({
 		gutter: (isotopeGutter * 1.5)
 	},
 	sortBy: 'random',
+});
+
+// filter results
+function resetFilters() {
+	$('#filters a').removeClass('active');
+	$('#filters a').removeClass('btn-primary btn-danger btn-success');
+	$('#filters a').addClass('btn-default');
+}
+$(document).on('click', '#filters a[data-filter]', function(event){
+	event.preventDefault();
+	$(this).blur();
+	
+	resetFilters();
+	$(this).addClass('active');
+	
+	var filterName = $(this).data('filter');
+	isotope.isotope({filter: '.' + filterName});
+	
+	var buttonStyle = $(this).data('active');
+	$(this).removeClass('btn-default');
+	$(this).addClass('btn-' + buttonStyle);
+	
+	$("#filters")[0].scrollIntoView();
+});
+$(document).on('click', '#filters a[data-filter-reset]', function(event){
+	event.preventDefault();
+	$(this).blur();
+	
+	resetFilters();
+	
+	isotope.isotope({filter: false});
 });
 
 });
