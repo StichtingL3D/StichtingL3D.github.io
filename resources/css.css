@@ -27,6 +27,14 @@ body {
 	}
 }
 
+p.subtle {
+	font-size: small;
+	color: #777;
+}
+p.subtle a {
+	color: inherit;
+}
+
 a {
 	color: #AA122B;
 	text-decoration: underline;
