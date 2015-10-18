@@ -81,6 +81,12 @@ header p {
 	max-width: 685px;
 }
 
+#loader {
+	position: absolute;
+	top: 400px;
+	left: 50%;
+}
+
 #about {
 	top: 0;
 	left: 0;
