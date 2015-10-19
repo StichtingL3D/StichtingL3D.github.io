@@ -1,0 +1,1 @@
+resources/images/3dwiki/3dwiki-mediawiki-backup-20150914.sql filter=lfs diff=lfs merge=lfs -text
